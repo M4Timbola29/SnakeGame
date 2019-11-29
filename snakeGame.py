@@ -122,6 +122,11 @@ class game():
         self.click0 = False
         color = (255, 255, 255)
 
+        txts = pg.font.SysFont('Courier New', 50).render(str(self.snake.score), True, (255, 255, 255))
+        txtrect = txts.get_rect()
+        txtrect.topleft = (480, 200)
+        self.screen.blit(txts, txtrect)
+
         # Up bar
         for x in range(0, 800, 10):
             t = pg.Surface((10, 10))
@@ -170,7 +175,7 @@ class game():
 
             txts = pg.font.SysFont('Courier New', 50).render(str(self.snake.score), True, (255, 255, 255))
             txtrect = txts.get_rect()
-            txtrect.topleft = (500, 200)
+            txtrect.topleft = (480, 200)
             self.screen.blit(txts, txtrect)
 
             pg.display.update()
@@ -186,6 +191,7 @@ class game():
                         self.buttonclick()
                         self.click0 = False
 
+    # Used to make buttons
     def make_button(self, pos, text, color, action = None, textsize = 20):
         mouse = pg.mouse.get_pos()
         oldpos = pos
