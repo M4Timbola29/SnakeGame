@@ -244,6 +244,7 @@ class game():
         self.game_over = False
 
         while self.game_over != True:
+
             self.screen.fill((0, 0, 0))
             self.snake.update()
 
