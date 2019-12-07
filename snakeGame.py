@@ -4,29 +4,29 @@
 import pygame as pg
 import sys, random
 
-def collide(x1, y1, x2, y2, x3, y3, x4, y4):
-    if (x3 + x4) > x1 > x3 and\
-    (y3 + y4) > y1 > y3 or\
-    (x3 + x4) > x2 >x3 and\
-    (y3 + y4) > y2 > y3:
+def colision(a1, b1, a2, b2, a3, b3, a4, b4):
+    if (a3 + a4) > a1 > a3 and\
+    (b3 + b4) > b1 > b3 or\
+    (a3 + a4) > a2 >a3 and\
+    (b3 + b4) > b2 > b3:
         return True
     else:
         return False
 
-def collide2(x1, y1, x2, y2, x3, y3, x4, y4, size):
-    if (x3 + (11 * size)) > x1 > x3 - 1 and\
-    (y3 + (11 * size)) > y1 > y3 - 1 or\
-    (x3 + (11 * size)) > x2 >x3 - 1 and\
-    (y3 + (11 * size)) > y2 > y3 - 1:
+def colision2(a1, b1, a2, b2, a3, b3, a4, b4, size):
+    if (a3 + (11 * size)) > a1 > a3 - 1 and\
+    (b3 + (11 * size)) > b1 > b3 - 1 or\
+    (a3 + (11 * size)) > a2 >a3 - 1 and\
+    (b3 + (11 * size)) > b2 > b3 - 1:
         return True
     else:
         return False
 
-def collide3(x1, y1, x2, y2, x3, y3, x4, y4, size):
-    if (x3 + (10 * size)) > x1 > x3 and\
-    (y3 + (10 * size)) > y1 > y3 or\
-    (x3 + (10 * size)) > x2 > x3 and\
-    (y3 + (10 * size)) > y2 > y3:
+def colision3(a1, b1, a2, b2, a3, b3, a4, b4, size):
+    if (a3 + (10 * size)) > a1 > a3 and\
+    (b3 + (10 * size)) > b1 > b3 or\
+    (a3 + (10 * size)) > a2 > a3 and\
+    (b3 + (10 * size)) > b2 > b3:
         return True
     else:
         return False
@@ -74,19 +74,19 @@ class snake():
             a += 1
 
     def check_collisions(self, x):
-        c = collide(self.pos[0], self.pos[1], self.pos[0]\
+        c = colision(self.pos[0], self.pos[1], self.pos[0]\
         + 10,self.pos[1] + 10,
         x[0], x[1], x[0] + 10, x[1] + 10)
         return c
 
     def check_apple(self, x):
-        c = collide2(self.pos[0], self.pos[1],\
+        c = colision2(self.pos[0], self.pos[1],\
         self.pos[0] + 10, self.pos[1] + 10, x[0],\
         x[1], x[0] + 10, x[1] + 10, self.size)
         return c
 
     def check_collisions2(self, x):
-        c = collide3(self.pos[0], self.pos[1],\
+        c = colision3(self.pos[0], self.pos[1],\
         self.pos[0] + 10, self.pos[1] + 10, x[0],\
         x[1], x[0] + 10, x[1] + 10, self.size)
         return c
